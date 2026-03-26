@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Siphonic Innovations LLP — Smart Siphonic Roof Drainage Design powered by DrainSmart®. Serving engineers and architects globally.">
+    <title>Siphonic Innovations | DrainSmart® — Smart Roof Drainage Solutions</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #05080D;
+            --color-surface: #0B1220;
+            --color-surface-2: #111D2E;
+            --color-primary: #00C8F0;
+            --color-primary-dim: rgba(0, 200, 240, 0.12);
+            --color-gold: #E8A020;
+            --color-white: #F2F7FF;
+            --color-muted: #7A94B0;
+            --color-border: rgba(0, 200, 240, 0.18);
+            --color-danger: #FF4D6A;
+
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-white);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-display);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+            filter: brightness(0.9) saturate(1.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* TYPOGRAPHY */
+        .text-mono {
+            font-family: var(--font-mono);
+        }
+
+        .text-primary {
+            color: var(--color-primary);
+        }
+
+        .text-gold {
+            color: var(--color-gold);
+        }
+
+        .text-muted {
+            color: var(--color-muted);
+        }
+
+        .text-white {
+            color: var(--color-white);
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(0, 200, 240, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1.5px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .btn-ghost:hover {
+            background: var(--color-primary-dim);
+            box-shadow: 0 0 20px rgba(0, 200, 240, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* GLASS CARD */
+        .glass-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 0 24px rgba(0, 200, 240, 0.06);
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 0 20px rgba(0, 200, 240, 0.25);
+            border-color: var(--color-primary);
+            transform: translateY(-4px);
+        }
+
+        /* ANIMATIONS */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* NOISE OVERLAY */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E');
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(5, 8, 13, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            padding: 16px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            line-height: 1.1;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 40px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .mobile-link:hover {
+            color: var(--color-primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .hamburger rect {
+            fill: var(--color-white);
+            transition: all 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 1150px) {
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--color-bg);
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+                transition: right 0.4s ease;
+            }
+
+            .mobile-menu.active {
+                right: 0;
+            }
+
+            .mobile-menu a {
+                font-size: 1.5rem;
+                font-family: var(--font-display);
+                font-weight: 700;
+            }
+
+            .mobile-menu .btn {
+                margin-top: 1rem;
+                font-size: 1rem;
+                font-family: var(--font-body);
+            }
+        }
+
+        /* HERO SECTION */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--color-bg);
+            overflow: hidden;
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(0, 200, 240, 0.15) 0%, rgba(5, 8, 13, 0) 70%);
+            filter: blur(80px);
+            animation: mesh 12s infinite alternate ease-in-out;
+            top: 20%;
+            left: 10%;
+        }
+
+        @keyframes mesh {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(20%, 10%) scale(1.1);
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            background: var(--color-primary-dim);
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            margin-bottom: 24px;
+            border: 1px solid var(--color-border);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--color-muted);
+            margin-bottom: 40px;
+            max-width: 540px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 12px;
+            outline: 2px solid var(--color-primary);
+            outline-offset: 8px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(-8px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+        }
+
+        /* STATS STRIP */
+        .stats-strip {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            padding: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .stat-item {
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -12px;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background: var(--color-border);
+        }
+
+        .stat-num {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+        }
+
+        /* SECTIONS GENERAL */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--color-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 0;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .service-card:hover::after {
+            width: 100%;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--color-muted);
+            font-size: 0.95rem;
+        }
+
+        .service-card-maintenance {
+            border-left: 4px solid var(--color-primary);
+            border-radius: 12px;
+        }
+
+        .service-card-maintenance:hover {
+            border-left-color: var(--color-gold);
+        }
+
+        .clip-divider {
+            height: 120px;
+            background: var(--color-surface-2);
+            clip-path: polygon(0 0, 100% 40%, 100% 100%, 0 60%);
+            margin: 60px 0;
+        }
+
+        /* DRAINSMART PRODUCT */
+        #drainsmart {
+            position: relative;
+            background-color: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            overflow: hidden;
+        }
+
+        .blueprint-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.04;
+            z-index: 0;
+            background-image: linear-gradient(rgba(0, 200, 240, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 200, 240, 0.5) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .drainsmart-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+            align-items: center;
+        }
+
+        .feature-list {
+            background: var(--color-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 0 40px rgba(0, 200, 240, 0.05);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        /* PROJECT GALLERY */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            grid-auto-rows: minmax(300px, auto);
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16 / 12;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: none;
+            border-radius: 0;
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(5, 8, 13, 0.95) 0%, rgba(5, 8, 13, 0.4) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .project-teaser {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* ACCOLADES */
+        .accolades-marquee {
+            overflow: hidden;
+            width: 100%;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 40px;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logo-card {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            width: 250px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .logo-card:hover {
+            border-color: var(--color-gold);
+        }
+
+        .logo-card img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+            border-radius: 0;
+        }
+
+        .logo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .founder-img-wrapper {
+            position: relative;
+            border-radius: 8px;
+            outline: 3px solid var(--color-primary);
+            outline-offset: 10px;
+        }
+
+        .country-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .tag-pill {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+        }
+
+        /* UPDATES / LINKEDIN */
+        .linkedin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .li-card {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .li-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .li-header svg {
+            width: 24px;
+            height: 24px;
+            fill: #0A66C2;
+        }
+
+        .li-title {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .li-excerpt {
+            color: var(--color-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .li-tags {
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+        }
+
+        .li-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .li-banner {
+            background: linear-gradient(90deg, #0A66C222, transparent);
+            border-left: 4px solid #0A66C2;
+            padding: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-icon {
+            color: var(--color-primary);
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            padding: 0 24px;
+            color: var(--color-muted);
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            overflow: hidden;
+        }
+
+        .faq-item.open {
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 400px;
+            padding-bottom: 24px;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* TESTIMONIALS */
+        .testi-carousel {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+            touch-action: pan-y;
+        }
+
+        .testi-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s ease;
+            width: max-content;
+        }
+
+        .testi-card {
+            width: 350px;
+            flex-shrink: 0;
+            padding: 40px 32px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-family: var(--font-display);
+            font-size: 80px;
+            color: var(--color-primary-dim);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .testi-text {
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testi-author {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .testi-meta {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        .testi-stars {
+            color: var(--color-gold);
+            position: absolute;
+            top: 32px;
+            right: 32px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .carousel-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-primary);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: var(--color-primary);
+            color: var(--color-bg);
+        }
+
+        /* CONTACT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: var(--color-surface);
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            color: var(--color-white);
+            font-family: var(--font-body);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px var(--color-primary-dim);
+        }
+
+        #submit-success {
+            display: none;
+            padding: 24px;
+            background: rgba(0, 255, 100, 0.1);
+            border: 1px solid #00FF64;
+            border-radius: 8px;
+            color: #00FF64;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding: 80px 0 40px;
+            background: var(--color-bg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col a {
+            color: var(--color-muted);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--color-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 1150px) {
+
+            .hero-grid,
+            .about-grid,
+            .drainsmart-layout,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                order: 1;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin: 0 auto 40px;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-image-wrapper {
+                order: 2;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px 0;
+            }
+
+            .stat-item:nth-child(2)::after {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .li-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .testi-card {
+                width: 85vw;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" class="mobile-link">Home</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#drainsmart" class="mobile-link">DrainSmart®</a>
+        <a href="#gallery" class="mobile-link">Projects</a>
+        <a href="#updates" class="mobile-link">Updates</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#contact" class="btn btn-primary mobile-link">Request Design Package</a>
+    </div>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12C4,14.6 5.25,16.92 7.23,18.43C7.03,17.7 7,16.89 7,16C7,11.83 10.15,8.44 14.25,8.04C13.56,7.5 12.8,7.11 12,6.9V9.5C12,10.33 11.33,11 10.5,11H8V12.5C8,13.33 8.67,14 9.5,14H11V15.5H8C8,16.84 8.78,18 9.93,18.57C10.57,18.84 11.27,19 12,19A7,7 0 0,0 19,12C19,10.96 18.77,9.96 18.35,9.08C17.71,9.04 17.09,9.09 16.5,9.25C17.43,10 18,11.19 18,12.5C18,14.71 16.21,16.5 14,16.5C12.44,16.5 11.08,15.6 10.42,14.29C11.6,14.15 12.5,13.14 12.5,11.9V11H14V9.5H13V7.27C14.71,7.57 16,9.13 16,11C16,13.2 14.2,15 12,15A5,5 0 0,1 7,10A5,5 0 0,1 12,5M12,7A3,3 0 0,0 9,10A3,3 0 0,0 12,13A3,3 0 0,0 15,10A3,3 0 0,0 12,7Z" />
+                </svg>
+                <span>Siphonic<br>Innovations</span>
+            </a>
+            <div class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#services">Services</a>
+                <a href="#drainsmart">DrainSmart®</a>
+                <a href="#gallery">Projects</a>
+                <a href="#updates">Updates</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#contact" class="btn btn-primary nav-cta">Request Design Package</a>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" id="hamburgerIcon">
+                    <rect class="line-1" y="4" width="24" height="2" rx="1" />
+                    <rect class="line-2" y="11" width="24" height="2" rx="1" />
+                    <rect class="line-3" y="18" width="24" height="2" rx="1" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-bg">
+            <div class="hero-blob"></div>
+        </div>
+        <div class="container hero-grid">
+            <div class="hero-content animate-on-scroll">
+                <div class="hero-badge text-mono">DPIIT RECOGNISED STARTUP</div>
+                <h1>Think Siphonic.<br><span class="text-primary">DrainSmart®.</span></h1>
+                <p>We're changing the way buildings manage rainwater — with smart, efficient, and sustainable Siphonic
+                    Roof Drainage systems. Advanced hydraulic engineering, made accessible for every designer.</p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary">Request Design Package</a>
+                    <a href="#drainsmart" class="btn btn-ghost">Explore DrainSmart®</a>
+                </div>
+                <!-- <div class="text-mono text-muted">📞 +91 93262 39484</div> -->
+            </div>
+            <div class="hero-image-wrapper animate-on-scroll" style="transition-delay: 0.2s">
+                <img src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Downpipe-9-1024x1024.png"
+                    alt="Siphonic Drainage Pipe">
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-strip">
+        <div class="container stats-grid" id="stats-section">
+            <div class="stat-item">
+                <div class="stat-num text-mono"><span class="counter" data-target="5">0</span>+</div>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num text-mono"><span class="counter" data-target="50">0</span>+</div>
+                <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num text-mono"><span class="counter" data-target="10">0</span>+</div>
+                <div class="stat-label">Countries Served</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num text-mono"><span class="counter" data-target="3">0</span></div>
+                <div class="stat-label">Continents</div>
+            </div>
+        </div>
+    </div>
+
+    <section id="services">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Our Expertise</h2>
+                <p>End-to-end siphonic drainage solutions — from design to maintenance.</p>
+            </div>
+            <div class="text-center" style="margin-bottom: 32px; text-align: center;"><span
+                    class="section-label text-mono text-gold">— DESIGN & ENGINEERING —</span></div>
+            <div class="services-grid">
+                <div class="service-card glass-card animate-on-scroll">
+                    <div class="service-icon">⬡</div>
+                    <h3>Computer Analysis & Design</h3>
+                    <p>Siphonic design is an art backed by science. DrainSmart® automates hydraulic analysis to deliver
+                        precise, safe, and cost-optimized drainage designs with full reporting.</p>
+                </div>
+                <div class="service-card glass-card animate-on-scroll" style="transition-delay: 0.1s">
+                    <div class="service-icon">▦</div>
+                    <h3>AutoCAD & BIM Integration</h3>
+                    <p>Full design packages including BOQs, hydraulic reports, and AutoCAD isometrics. BIM projects
+                        receive Revit-ready models for seamless multi-discipline coordination.</p>
+                </div>
+                <div class="service-card glass-card animate-on-scroll" style="transition-delay: 0.2s">
+                    <div class="service-icon">🎓</div>
+                    <h3>Training & Certification</h3>
+                    <p>Structured programmes to learn siphonic design fundamentals and earn certification as a qualified
+                        siphonic drainage designer.</p>
+                </div>
+                <div class="service-card glass-card animate-on-scroll" style="transition-delay: 0.3s">
+                    <div class="service-icon">🔧</div>
+                    <h3>Technical Support</h3>
+                    <p>One-on-one guidance, performance checks, and rapid on-site solutions — particularly for designers
+                        tackling their first siphonic projects.</p>
+                </div>
+                <div class="service-card glass-card animate-on-scroll" style="transition-delay: 0.4s">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Manufacturer Integration</h3>
+                    <p>Direct access to multiple manufacturer component libraries (including Aliaxis/Ashirvad) within
+                        the DrainSmart® platform.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="clip-divider"></div>
+
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 40px; text-align: center;">
+                <span class="section-label text-mono text-primary">— COMMERCIAL MAINTENANCE —</span>
+                <h3>Keeping Your Building's Drainage at Peak Performance</h3>
+            </div>
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="service-card service-card-maintenance glass-card animate-on-scroll">
+                    <div class="service-icon">🏢</div>
+                    <h3>Roofing Maintenance</h3>
+                    <p>Comprehensive inspection and maintenance of commercial roofing systems — identifying
+                        vulnerabilities, clearing debris, and ensuring structural integrity through every season.</p>
+                </div>
+                <div class="service-card service-card-maintenance glass-card animate-on-scroll"
+                    style="transition-delay: 0.1s">
+                    <div class="service-icon">🌊</div>
+                    <h3>Gutter Maintenance</h3>
+                    <p>Regular cleaning, inspection, and repair of commercial gutter systems to prevent blockages,
+                        overflows, and water ingress that can cause serious structural damage.</p>
+                </div>
+                <div class="service-card service-card-maintenance glass-card animate-on-scroll"
+                    style="transition-delay: 0.2s">
+                    <div class="service-icon">🚰</div>
+                    <h3>Siphonic Maintenance</h3>
+                    <p>Specialist inspection, flushing, and performance testing of siphonic drainage systems — ensuring
+                        outlets, pipes, and siphonic heads operate at full hydraulic capacity.</p>
+                </div>
+                <div class="service-card service-card-maintenance glass-card animate-on-scroll"
+                    style="transition-delay: 0.3s">
+                    <div class="service-icon">🚁</div>
+                    <h3>Drone Surveys</h3>
+                    <p>High-resolution aerial roof surveys using drone technology for detailed condition assessments,
+                        access to inaccessible areas, and proactive maintenance planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="drainsmart">
+        <div class="blueprint-bg"></div>
+        <div class="container drainsmart-layout">
+            <div class="animate-on-scroll">
+                <span class="section-label text-mono text-primary">— PROPRIETARY SOFTWARE —</span>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); margin-bottom: 16px;">Introducing DrainSmart®</h2>
+                <h4
+                    style="font-family: var(--font-body); font-weight: 400; color: var(--color-muted); margin-bottom: 24px;">
+                    The future of siphonic drainage design — digital, precise, and powerful.</h4>
+                <p style="margin-bottom: 32px; color: var(--color-white);">DrainSmart® is Siphonic Innovations'
+                    proprietary hydraulic analysis and design platform. It eliminates guesswork from siphonic design —
+                    combining advanced hydraulic modelling with an intuitive workflow to produce code-compliant,
+                    optimised drainage systems in a fraction of traditional time. Trusted by engineers across India,
+                    Australia, Malaysia, the Maldives, and beyond.</p>
+                <a href="#contact" class="btn btn-primary">Start Your Siphonic Journey →</a>
+            </div>
+            <div class="feature-list animate-on-scroll" style="transition-delay: 0.2s">
+                <div class="feature-item"><span class="feature-icon text-mono">✔</span><span>Automated hydraulic
+                        balancing</span></div>
+                <div class="feature-item"><span class="feature-icon text-mono">✔</span><span>BOQ & material cost
+                        outputs</span></div>
+                <div class="feature-item"><span class="feature-icon text-mono">✔</span><span>Hydraulic performance
+                        reports</span></div>
+                <div class="feature-item"><span class="feature-icon text-mono">✔</span><span>AutoCAD isometric exports
+                        (ready-to-issue)</span></div>
+                <div class="feature-item"><span class="feature-icon text-mono">✔</span><span>BIM / Revit model
+                        generation</span></div>
+                <div class="feature-item"><span class="feature-icon text-mono">✔</span><span>Multi-manufacturer
+                        component library</span></div>
+                <div class="feature-item"><span class="feature-icon text-mono">✔</span><span>EN-compliant siphonic
+                        calculations</span></div>
+                <div class="feature-item" style="margin-bottom: 0;"><span
+                        class="feature-icon text-mono">✔</span><span>Supports complex multi-level roof geometries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label text-mono text-gold">— OUR PROJECTS —</span>
+                <h2>Engineering Across Continents</h2>
+                <p>From international airports to luxury apartments — DrainSmart® delivers globally.</p>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-card animate-on-scroll">
+                    <img src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Maldives-1.jpg"
+                        alt="Hanimaadhoo International Airport">
+                    <div class="project-overlay">
+                        <div class="project-meta text-mono text-primary"><span>🇲🇻 Maldives</span><span>Feb 2024 –
+                                2025</span></div>
+                        <h3 class="project-title">Hanimaadhoo International Airport</h3>
+                        <p class="project-teaser">A flagship DrainSmart® project featuring one of the region's most
+                            complex roof geometries. Advanced hydraulic balancing across wide roof spans, BIM-integrated
+                            modelling, and precise AutoCAD layouts. Achieves notable material and CO₂ reductions
+                            supporting sustainable aviation infrastructure. Completed in collaboration with the
+                            Kalpataru team.</p>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll" style="transition-delay: 0.1s">
+                    <img src="https://siphonic-innovations.com/wp-content/uploads/2025/11/hero_images___1_-1.jpg"
+                        alt="Union Quarter">
+                    <div class="project-overlay">
+                        <div class="project-meta text-mono text-primary"><span>🇦🇺 Melbourne, Australia</span><span>Jan
+                                2022 – Mar 2023</span></div>
+                        <h3 class="project-title">Union Quarter</h3>
+                        <p class="project-teaser">4,000 m² multi-level residential roof designed using DrainSmart® for
+                            precise hydraulic balancing. Despite irregular roof geometry and structural constraints, the
+                            siphonic layout reduced downpipes by nearly 10× versus gravity systems — delivering major
+                            material and CO₂ savings for modern township development.</p>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll" style="transition-delay: 0.2s">
+                    <img src="https://siphonic-innovations.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-07-19-at-10.00.05-AM-1-1.jpeg"
+                        alt="Beach St Luxury Apartments">
+                    <div class="project-overlay">
+                        <div class="project-meta text-mono text-primary"><span>🇦🇺 Melbourne, Australia</span><span>Jun
+                                2025 – Present</span></div>
+                        <h3 class="project-title">Beach St Luxury Apartments</h3>
+                        <p class="project-teaser">Premium residential development requiring high-performance siphonic
+                            drainage. Complex roof layouts with limited vertical space demanded precise hydraulic
+                            balancing and careful MEP coordination. Digital modelling, AutoCAD isometrics, and BIM-ready
+                            outputs ensured seamless integration with the luxury building design.</p>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll" style="transition-delay: 0.3s">
+                    <img src="https://siphonic-innovations.com/wp-content/uploads/2025/11/home-2.png"
+                        alt="Swosti Institute of Management">
+                    <div class="project-overlay">
+                        <div class="project-meta text-mono text-primary"><span>🇮🇳 Bhubaneswar, India</span><span>2022
+                                – 2023</span></div>
+                        <h3 class="project-title">Swosti Institute of Management</h3>
+                        <p class="project-teaser">Large reinforced-concrete institutional roof requiring efficient
+                            rainwater management with minimal vertical penetrations. Designed using DrainSmart® in
+                            collaboration with Aliaxis (Ashirvad Pipes Pvt. Ltd.), delivering accurate hydraulic
+                            balancing, optimised pipe sizing, and precise AutoCAD isometrics for long-term campus
+                            sustainability.</p>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll" style="transition-delay: 0.4s">
+                    <img src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Riveria-KL-1-1.jpeg"
+                        alt="Riveria City, KL Sentral">
+                    <div class="project-overlay">
+                        <div class="project-meta text-mono text-primary"><span>🇲🇾 Kuala Lumpur,
+                                Malaysia</span><span>Jul 2025 – Present</span></div>
+                        <h3 class="project-title">Riveria City, KL Sentral</h3>
+                        <p class="project-teaser">Major transit-oriented development requiring a fully integrated
+                            rainwater management strategy. DrainSmart® applied advanced hydraulic analysis, EN-tested
+                            siphonic principles, and BIM-coordinated modelling to handle large roof catchments
+                            efficiently — delivering a reliable, space-saving, sustainable solution for a high-density
+                            urban project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="accolades" style="padding: 40px 0;">
+        <div class="container text-center animate-on-scroll" style="margin-bottom: 40px;">
+            <span class="section-label text-mono text-gold">— RECOGNITION & AWARDS —</span>
+            <h2>Recognised. Awarded. Trusted.</h2>
+            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+                <span class="tag-pill">DPIIT Recognised Startup</span><span class="tag-pill">IPA Exhibition
+                    Participant</span>
+                <span class="tag-pill">International Collaborations</span><span class="tag-pill">5+ Years in
+                    Industry</span>
+            </div>
+        </div>
+
+        <div class="accolades-marquee animate-on-scroll">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Isometric-Logo-SI-300x82.jpg"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/DPIIT-300x100.jpeg" alt="Logo">
+                </div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/images-1.jpeg" alt="Logo">
+                </div>
+                <div class="logo-card"><img src="https://siphonic-innovations.com/wp-content/uploads/2025/11/images.png"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/IPA-Exhibition-300x300.jpg"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Picture2-281x300.jpg"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/image-273x300.png" alt="Logo">
+                </div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Picture4-300x269.png"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Picture5-300x169.jpg"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Picture3-300x200.jpg"
+                        alt="Logo"></div>
+                <!-- Set 2 -->
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Isometric-Logo-SI-300x82.jpg"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/DPIIT-300x100.jpeg" alt="Logo">
+                </div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/images-1.jpeg" alt="Logo">
+                </div>
+                <div class="logo-card"><img src="https://siphonic-innovations.com/wp-content/uploads/2025/11/images.png"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/IPA-Exhibition-300x300.jpg"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Picture2-281x300.jpg"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/image-273x300.png" alt="Logo">
+                </div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Picture4-300x269.png"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Picture5-300x169.jpg"
+                        alt="Logo"></div>
+                <div class="logo-card"><img
+                        src="https://siphonic-innovations.com/wp-content/uploads/2025/11/Picture3-300x200.jpg"
+                        alt="Logo"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container about-grid">
+            <div class="animate-on-scroll">
+                <div class="founder-img-wrapper" style="margin-bottom: 20px;">
+                    <img src="https://siphonic-innovations.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-04-at-11.55.35_c58289b3-2.jpg"
+                        alt="Ms. Aishwarya Krishnan">
+                </div>
+                <div>
+                    <h3 style="font-family: var(--font-display); font-weight: 700;">Ms. Aishwarya Krishnan</h3>
+                    <p class="text-muted" style="font-size: 0.95rem;">Founder & Director, Siphonic Innovations LLP</p>
+                </div>
+            </div>
+            <div class="animate-on-scroll" style="transition-delay: 0.2s">
+                <span class="section-label text-mono text-primary">— WHO WE ARE —</span>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); margin-bottom: 24px;">Driving Innovation in Siphonic
+                    Drainage</h2>
+                <p style="margin-bottom: 16px;">Led by Ms. Aishwarya Krishnan, Siphonic Innovations LLP stands as a
+                    trailblazer in the Siphonic Roof Drainage industry. Holding a Master's in Construction Management
+                    and a Bachelor's in Civil Engineering, Ms. Krishnan brings deep technical expertise and a passion
+                    for making advanced siphonic design accessible to designers and builders worldwide.</p>
+                <p>With over 5 years of experience, we combine practical engineering know-how with modern digital tools
+                    — delivering projects across India, Australia, the Maldives, Malaysia, the UK, the Philippines, and
+                    the USA.</p>
+                <div class="country-badges">
+                    <span class="tag-pill">🇮🇳 India</span><span class="tag-pill">🇦🇺 Australia</span><span
+                        class="tag-pill">🇲🇻 Maldives</span>
+                    <span class="tag-pill">🇲🇾 Malaysia</span><span class="tag-pill">🇬🇧 UK</span><span
+                        class="tag-pill">🇵🇭 Philippines</span><span class="tag-pill">🇺🇸 USA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="updates">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label text-mono text-primary">— LATEST UPDATES —</span>
+                <h2>Insights, Projects & Updates</h2>
+                <p>Follow our work — published live on LinkedIn and our blog.</p>
+            </div>
+
+            <div class="linkedin-grid">
+                <div class="glass-card li-card animate-on-scroll">
+                    <div class="li-header">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" />
+                        </svg>
+                        <span class="text-mono text-muted" style="font-size:0.8rem">LinkedIn • Recent</span>
+                    </div>
+                    <h3 class="li-title">Hanimaadhoo Airport — A Siphonic Engineering Milestone 🇲🇻</h3>
+                    <p class="li-excerpt">Proud to share the completion of our siphonic drainage design for Hanimaadhoo
+                        International Airport in the Maldives. One of the most complex roof geometries we've tackled —
+                        advanced hydraulic balancing, BIM-integrated modelling, and DrainSmart® at its best...</p>
+                    <div class="li-tags">#SiphonicDrainage #DrainSmart #Airport #Maldives</div>
+                    <a href="https://www.linkedin.com/company/siphonic-innovations/" target="_blank"
+                        class="li-link">Read on LinkedIn →</a>
+                </div>
+                <div class="glass-card li-card animate-on-scroll" style="transition-delay: 0.1s">
+                    <div class="li-header">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" />
+                        </svg>
+                        <span class="text-mono text-muted" style="font-size:0.8rem">LinkedIn • Recent</span>
+                    </div>
+                    <h3 class="li-title">Why Siphonic Systems Outperform Gravity Drainage on Large Roofs</h3>
+                    <p class="li-excerpt">When roof areas exceed 500 m², traditional gravity drainage becomes costly,
+                        space-consuming, and unreliable. Here's why siphonic systems are the smarter engineering choice
+                        — fewer downpipes, faster drainage, and massive CO₂ savings...</p>
+                    <div class="li-tags">#RoofDrainage #Sustainability #Engineering</div>
+                    <a href="https://www.linkedin.com/company/siphonic-innovations/" target="_blank"
+                        class="li-link">Read on LinkedIn →</a>
+                </div>
+                <div class="glass-card li-card animate-on-scroll" style="transition-delay: 0.2s">
+                    <div class="li-header">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" />
+                        </svg>
+                        <span class="text-mono text-muted" style="font-size:0.8rem">LinkedIn • Recent</span>
+                    </div>
+                    <h3 class="li-title">DrainSmart® — Now Supporting BIM-Ready Revit Outputs</h3>
+                    <p class="li-excerpt">We're excited to share that DrainSmart® now delivers full Revit-ready model
+                        outputs, enabling seamless BIM coordination across architecture, structure, and MEP disciplines.
+                        Here's what this means for your next project...</p>
+                    <div class="li-tags">#BIM #Revit #DrainSmart #Innovation</div>
+                    <a href="https://www.linkedin.com/company/siphonic-innovations/" target="_blank"
+                        class="li-link">Read on LinkedIn →</a>
+                </div>
+            </div>
+
+            <div class="li-banner animate-on-scroll">
+                <p style="font-family: var(--font-display); font-size: 1.1rem; margin:0;">→ Follow us on LinkedIn for
+                    live project updates, technical insights, and industry news.</p>
+                <a href="https://www.linkedin.com/company/siphonic-innovations/" target="_blank" class="btn btn-primary"
+                    style="white-space:nowrap;">
+                    Follow on LinkedIn
+                    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--color-bg);margin-left:8px;">
+                        <path
+                            d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="faq-container animate-on-scroll">
+            <div class="text-center" style="margin-bottom: 40px;">
+                <span class="section-label text-mono text-muted">— FREQUENTLY ASKED —</span>
+                <h2>Got Questions?</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is Siphonic Roof Drainage?<span class="faq-icon">+</span></div>
+                <div class="faq-answer">Siphonic Roof Drainage is an innovative system designed to efficiently and
+                    rapidly remove rainwater from roofs using the principle of siphon action. It allows for optimal
+                    drainage even at low flow rates, making it a highly effective solution for a wide variety of roof
+                    structures.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How does Siphonic drainage differ from traditional systems?<span
+                        class="faq-icon">+</span></div>
+                <div class="faq-answer">Unlike traditional gravity-based drainage, siphonic systems use a network of
+                    pipes to create a vacuum — enabling faster, more efficient water removal, especially over long
+                    horizontal distances, and with significantly fewer downpipes and outlets.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What types of roofs are suitable for Siphonic drainage?<span
+                        class="faq-icon">+</span></div>
+                <div class="faq-answer">Siphonic drainage is versatile and suitable for flat roofs, curved roofs,
+                    industrial buildings, commercial developments, airports, and more. Its adaptability makes it an
+                    excellent choice across a wide range of architectural designs.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What are the main advantages of Siphonic Roof Drainage?<span
+                        class="faq-icon">+</span></div>
+                <div class="faq-answer">Key benefits include efficient water removal, space optimisation,
+                    cost-effectiveness, reduced material use, lower CO₂ footprint, and minimal maintenance. Particularly
+                    advantageous for large roof areas and complex building structures.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How does Siphonic Innovations ensure project success?<span
+                        class="faq-icon">+</span></div>
+                <div class="faq-answer">Our success lies in a comprehensive approach combining over 5 years of hydraulic
+                    engineering experience, our proprietary DrainSmart® software, BIM integration, and close
+                    collaboration with clients from concept to completion.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What maintenance is required for Siphonic systems?<span
+                        class="faq-icon">+</span></div>
+                <div class="faq-answer">Siphonic systems are known for low maintenance needs. Regular outlet inspections
+                    and periodic cleaning are recommended, but the self-cleaning mechanism of the siphonic action
+                    minimises the need for frequent interventions.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is Siphonic Roof Drainage environmentally friendly?<span
+                        class="faq-icon">+</span></div>
+                <div class="faq-answer">Yes. Siphonic systems contribute to water conservation by efficiently capturing
+                    and directing rainwater. They also reduce the quantity of materials required (fewer pipes, fewer
+                    outlets), lowering the overall construction carbon footprint.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container overflow-hidden">
+            <div class="text-center animate-on-scroll">
+                <span class="section-label text-mono text-gold">— WHAT CLIENTS SAY —</span>
+                <h2>Trusted by Engineers Worldwide</h2>
+            </div>
+
+            <div class="testi-carousel animate-on-scroll" style="transition-delay: 0.2s" id="testiCarousel">
+                <div class="testi-track" id="testiTrack">
+                    <div class="testi-card">
+                        <div class="quote-mark">"</div>
+                        <div class="testi-stars">★★★★★</div>
+                        <p class="testi-text">Dear Aishwarya… After more than five years of working together, you have
+                            grown into an expert yourself and are able to share your knowledge and skills with a new
+                            generation of open-minded young people in India and around the world. Good luck and God's
+                            blessings.</p>
+                        <div class="testi-author">Rolf H. Keidel</div>
+                        <div class="testi-meta"><span class="text-mono">🇩🇪 GERMANY</span></div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="quote-mark">"</div>
+                        <div class="testi-stars">★★★★★</div>
+                        <p class="testi-text">One of Ash's standout attributes is her profound knowledge of plumbing,
+                            with a particular expertise in Siphonic roof drainage. She has effectively applied her
+                            skills to tackle complex design challenges in large-scale industrial and commercial roofing
+                            projects...</p>
+                        <div class="testi-author">Dr. John Antonio-Herrero Smith</div>
+                        <div class="testi-meta"><span class="text-mono">🇬🇧 UK / 🇹🇭 THAILAND</span></div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="quote-mark">"</div>
+                        <div class="testi-stars">★★★★★</div>
+                        <p class="testi-text">You are a gifted communicator with a natural talent for making technical
+                            knowledge easier to understand. Thank you for the help during our training sessions — I am
+                            now able to promote siphonic solutions with confidence. Looking forward to continuing our
+                            journey.</p>
+                        <div class="testi-author">John Turner</div>
+                        <div class="testi-meta"><span class="text-mono">🇵🇭 PHILIPPINES</span></div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="quote-mark">"</div>
+                        <div class="testi-stars">★★★★★</div>
+                        <p class="testi-text">Excellent review session. Every inquiry I had was completed with precision
+                            resolution. The team was very friendly and driven to satisfy my needs.</p>
+                        <div class="testi-author">W. Jake</div>
+                        <div class="testi-meta"><span class="text-mono">🇺🇸 USA</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-nav animate-on-scroll" style="transition-delay:0.3s;">
+                <button class="carousel-btn" id="btnPrev">←</button>
+                <button class="carousel-btn" id="btnNext">→</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container contact-grid">
+            <div class="animate-on-scroll">
+                <span class="section-label text-mono text-cyan">— GET IN TOUCH —</span>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); margin-bottom: 24px;">Let's Work Together</h2>
+                <p style="margin-bottom: 40px; color: var(--color-muted);">Whether you're an engineer, architect,
+                    developer, or building owner — we'd love to hear about your project.</p>
+
+                <div class="contact-info">
+                    <div class="contact-card"><span style="font-size:1.5rem">📧</span>
+                        <span>info@siphonic-innovations.com</span>
+                    </div>
+                    <div class="contact-card"><span style="font-size:1.5rem">📞</span> <span>+91 93262 39484</span>
+                    </div>
+                    <div class="contact-card"><span style="font-size:1.5rem">🌐</span>
+                        <span>siphonic-innovations.com</span>
+                    </div>
+                    <div class="contact-card"><span style="font-size:1.5rem">💼</span>
+                        <span>linkedin.com/company/siphonic-innovations</span>
+                    </div>
+                </div>
+                <!-- Animated pulsing background -->
+                <div
+                    style="width:100px; height:100px; background:radial-gradient(circle, var(--color-primary-dim), transparent); border-radius:50%; animation: pulse 4s infinite alternate; margin-top:40px;">
+                </div>
+                <style>
+                    @keyframes pulse {
+                        0% {
+                            transform: scale(1);
+                            opacity: 0.5;
+                        }
+
+                        100% {
+                            transform: scale(3);
+                            opacity: 0.1;
+                        }
+                    }
+                </style>
+            </div>
+            <div class="animate-on-scroll" style="transition-delay: 0.2s">
+                <div class="glass-card" style="padding: 32px;">
+                    <form id="contactForm">
+                        <div class="form-group"><input type="text" class="form-control" name="name"
+                                placeholder="Full Name *" required></div>
+                        <div class="form-group"><input type="email" class="form-control" name="email"
+                                placeholder="Email Address *" required></div>
+                        <div class="form-group"><input type="text" class="form-control" name="company"
+                                placeholder="Company / Organisation"></div>
+                        <div class="form-group"><input type="text" class="form-control" name="country"
+                                placeholder="Country"></div>
+                        <div class="form-group">
+                            <select class="form-control" name="projectType">
+                                <option value="" disabled selected>Select Project Type</option>
+                                <option value="Design">Siphonic Design Consultation</option>
+                                <option value="Software">DrainSmart® Software / Licensing</option>
+                                <option value="Training">Training & Certification</option>
+                                <option value="Maintenance">Commercial Maintenance</option>
+                                <option value="Drone">Drone Survey</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><textarea class="form-control" name="message" rows="4"
+                                placeholder="Message / Project Details *" required></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message →</button>
+                    </form>
+                    <div id="submit-success">
+                        <span style="font-size:1.5rem;">✓</span><br>Message sent! We'll get back to you within 24 hours.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col" style="grid-column: span 1.5;">
+                    <div class="logo" style="margin-bottom:16px;">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12C4,14.6 5.25,16.92 7.23,18.43C7.03,17.7 7,16.89 7,16C7,11.83 10.15,8.44 14.25,8.04C13.56,7.5 12.8,7.11 12,6.9V9.5C12,10.33 11.33,11 10.5,11H8V12.5C8,13.33 8.67,14 9.5,14H11V15.5H8C8,16.84 8.78,18 9.93,18.57C10.57,18.84 11.27,19 12,19A7,7 0 0,0 19,12C19,10.96 18.77,9.96 18.35,9.08C17.71,9.04 17.09,9.09 16.5,9.25C17.43,10 18,11.19 18,12.5C18,14.71 16.21,16.5 14,16.5C12.44,16.5 11.08,15.6 10.42,14.29C11.6,14.15 12.5,13.14 12.5,11.9V11H14V9.5H13V7.27C14.71,7.57 16,9.13 16,11C16,13.2 14.2,15 12,15A5,5 0 0,1 7,10A5,5 0 0,1 12,5M12,7A3,3 0 0,0 9,10A3,3 0 0,0 12,13A3,3 0 0,0 15,10A3,3 0 0,0 12,7Z" />
+                        </svg>
+                        <span>Siphonic<br>Innovations</span>
+                    </div>
+                    <p style="font-family: var(--font-display); font-style: italic; margin-bottom: 24px;">Think
+                        Siphonic. DrainSmart®.</p>
+                    <a href="https://www.linkedin.com/company/siphonic-innovations/" target="_blank"
+                        style="display:inline-block; margin-bottom:24px;">
+                        <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:var(--color-muted);">
+                            <path
+                                d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" />
+                        </svg>
+                    </a><br>
+                    <span class="tag-pill" style="border-color:var(--color-gold);">DPIIT Recognised Startup</span>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#drainsmart">DrainSmart®</a></li>
+                        <li><a href="#gallery">Projects</a></li>
+                        <li><a href="#updates">Updates</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Siphonic Design</a></li>
+                        <li><a href="#services">BIM & AutoCAD</a></li>
+                        <li><a href="#services">Training</a></li>
+                        <li><a href="#services">Technical Support</a></li>
+                        <li><a href="#services">Roofing Maintenance</a></li>
+                        <li><a href="#services">Gutter Maintenance</a></li>
+                        <li><a href="#services">Siphonic Maintenance</a></li>
+                        <li><a href="#services">Drone Surveys</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@siphonic-innovations.com">info@siphonic-innovations.com</a></li>
+                        <li><a href="tel:+919326239484">+91 93262 39484</a></li>
+                        <li><a href="https://siphonic-innovations.com">siphonic-innovations.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 Siphonic Innovations LLP. All Rights Reserved.</div>
+                <div style="font-family:var(--font-mono);">Privacy Policy · Terms of Service</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scrolled Class
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const isActive = mobileMenu.classList.contains('active');
+            const rects = document.querySelectorAll('.hamburger rect');
+            if (isActive) {
+                rects[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                rects[1].style.opacity = '0';
+                rects[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                rects[0].style.transform = 'none';
+                rects[1].style.opacity = '1';
+                rects[2].style.transform = 'none';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const rects = document.querySelectorAll('.hamburger rect');
+                rects[0].style.transform = 'none';
+                rects[1].style.opacity = '1';
+                rects[2].style.transform = 'none';
+            });
+        });
+
+        // IntersectionObserver for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('is-visible');
+                    // Check if it's the stats section to trigger counters
+                    if (e.target.id === 'stats-section' && !e.target.dataset.counted) {
+                        e.target.dataset.counted = "true";
+                        startCounters();
+                    }
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.animate-on-scroll, #stats-section').forEach(el => observer.observe(el));
+
+        // Counter Animation
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 1500; // ms
+                const start = performance.now();
+
+                function updateCounter(currentTime) {
+                    const elapsed = currentTime - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // easeOutQuart
+                    const ease = 1 - Math.pow(1 - progress, 4);
+
+                    counter.innerText = Math.floor(target * ease);
+                    if (progress < 1) requestAnimationFrame(updateCounter);
+                    else counter.innerText = target;
+                }
+                requestAnimationFrame(updateCounter);
+            });
+        }
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                faqItems.forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // Testimonials Carousel Logic
+        const track = document.getElementById('testiTrack');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+        const cards = document.querySelectorAll('.testi-card');
+
+        let currentIndex = 0;
+        let startX = 0;
+        let diffX = 0;
+
+        function updateCarousel() {
+            // max index depends on exactly how many fit on screen, approx.
+            // total cards 4, desktop shows 3, track offset:
+            let maxIndex = cards.length - 1;
+            if (window.innerWidth >= 1024) maxIndex = 1;
+            else if (window.innerWidth >= 768) maxIndex = 2;
+
+            if (currentIndex < 0) currentIndex = 0;
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 24;
+            track.style.transform = `translateX(-${(cardWidth + gap) * currentIndex}px)`;
+        }
+
+        btnPrev.addEventListener('click', () => { currentIndex--; updateCarousel(); });
+        btnNext.addEventListener('click', () => { currentIndex++; updateCarousel(); });
+        window.addEventListener('resize', updateCarousel);
+
+        // Touch events for swipe
+        const testiCarousel = document.getElementById('testiCarousel');
+        testiCarousel.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        testiCarousel.addEventListener('touchmove', e => {
+            diffX = e.touches[0].clientX - startX;
+        }, { passive: true });
+
+        testiCarousel.addEventListener('touchend', e => {
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) currentIndex--;
+                else currentIndex++;
+                updateCarousel();
+            }
+            diffX = 0;
+            startX = 0;
+        });
+
+        // Contact Form
+        const contactForm = document.getElementById('contactForm');
+        const submitSuccess = document.getElementById('submit-success');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Sending...';
+            btn.disabled = true;
+
+            // Simulate network request
+            setTimeout(() => {
+                contactForm.style.display = 'none';
+                submitSuccess.style.display = 'block';
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
