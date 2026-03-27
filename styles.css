@@ -331,7 +331,7 @@ nav.scrolled {
     object-fit: cover;
     object-position: center center;
     z-index: 0;
-    opacity: 0.5;
+    opacity: 0.7;
     transform: translateZ(0);
     will-change: transform;
 }
