@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -69,17 +69,24 @@
         <div class="hero-blob"></div>
         <div class="hero-blob-2"></div>
 
+        <!-- Side caption -->
+        <div class="hero-side-caption">DPIIT Recognised &nbsp;·&nbsp; Est. 2020 &nbsp;·&nbsp; Serving 10+ Countries
+        </div>
+
         <div class="container hero-center">
             <div class="hero-content anim">
                 <div class="hero-badge">DPIIT RECOGNISED STARTUP</div>
-                <h1>End To End Siphonic<br><span class="text-primary">Roof Drainage Partner</span></h1>
-                <div class="hero-tagline">DESIGN &nbsp;&middot;&nbsp; SUPPLY &nbsp;&middot;&nbsp; SUPPORT</div>
-                <h3>From concept to commissioning — design, supply, execution, and maintenance</h3>
+                <h1>
+                    <span class="h1-line1">End - To - End Siphonic</span><br>
+                    <span class="h1-line2 text-primary">Roof Drainage </BR>Partner</span>
+                </h1>
+                <div class="hero-tagline">DESIGN &nbsp;&middot;&nbsp; SUPPLY &nbsp;&middot;&nbsp; SUPPORT
+                    &nbsp;&middot;&nbsp; MAINTENANCE</div>
                 <div class="hero-ctas">
                     <a href="#contact" class="btn btn-primary">Book a Consultation</a>
                 </div>
 
-                <!-- LinkedIn strip — NOW BELOW the button -->
+                <!-- LinkedIn strip -->
                 <a href="https://www.linkedin.com/in/aishwarya-raman-krishnan" target="_blank" rel="noopener"
                     class="li-hero-strip">
                     <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#0A66C2;flex-shrink:0;">
@@ -99,30 +106,30 @@
     </section>
 
     <!-- =====================================================
-         SERVICES — No gap, visual-first redesign
+         SERVICES — All 4 cards uniform format with images
     ===================================================== -->
     <section id="services">
         <div class="container">
 
             <div class="section-header anim">
-                <h2>Our Expertise</h2>
-                <p>End-to-end siphonic drainage — from concept to commissioning.</p>
+                <h2>OUR SERVICES</h2>
+                <p>End-to-end siphonic drainage — from design to maintenance.</p>
             </div>
 
-            <!-- Section label directly above grid — NO margin gap -->
+            <!-- Section label directly above grid -->
             <div class="svc-label-bar anim">
                 <span class="svc-label-pill svc-label-blue">⚙ DESIGN &amp; ENGINEERING</span>
                 <span class="svc-label-divider">·</span>
                 <span class="svc-label-pill svc-label-gold">🔧 MAINTENANCE</span>
             </div>
 
-            <!-- ── 4-COLUMN SERVICES GRID ── -->
+            <!-- ── 4-COLUMN SERVICES GRID — ALL UNIFORM ── -->
             <div class="services-grid-4">
 
                 <!-- ① GREENFIELD -->
                 <div class="service-card glass-card anim">
                     <div class="svc-img-wrap">
-                        <img src="images/Maldives.jpg" alt="Greenfield Projects">
+                        <img src="images/card1.png" alt="Greenfield Projects">
                         <div class="svc-img-overlay">
                             <span class="svc-type-tag">NEW BUILD</span>
                         </div>
@@ -152,7 +159,7 @@
                 <!-- ② BROWNFIELD -->
                 <div class="service-card glass-card anim" style="transition-delay:0.1s;">
                     <div class="svc-img-wrap">
-                        <img src="images/Melbourne.jpg" alt="Brownfield Projects">
+                        <img src="images/card2.png" alt="Brownfield Projects">
                         <div class="svc-img-overlay">
                             <span class="svc-type-tag">RETROFIT</span>
                         </div>
@@ -165,84 +172,54 @@
                                 <p class="sub-title">Retrofit, Repair &amp; Optimization</p>
                             </div>
                         </div>
-                        <!-- Problem keywords — like waterlogging pills -->
-                        <div class="problem-pills">
-                            <span class="ideal-pill">💧 Waterlogging</span>
-                            <span class="ideal-pill">⚠️ Frequent Overflows</span>
-                            <span class="ideal-pill">🔧 Aging Systems</span>
-                            <span class="ideal-pill">🏚️ Leakage Issues</span>
+                        <div class="kw-pills">
+                            <span class="kw-pill">💧 Waterlogging</span>
+                            <span class="kw-pill">⚠️ Frequent Overflows</span>
+                            <span class="kw-pill">🔧 Aging Systems</span>
+                            <span class="kw-pill">🏚️ Leakage Issues</span>
                         </div>
                         <ul class="tick-list">
                             <li><span class="tick">✔</span> Improved drainage efficiency</li>
                             <li><span class="tick">✔</span> Minimal disruption retrofit</li>
+                            <li><span class="tick">✔</span> System performance restored</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- ③ DESIGN REVIEW + MAINTENANCE SIDE BY SIDE -->
-                <div class="service-card glass-card anim split-card" style="transition-delay:0.2s;">
-
-                    <!-- Top half: Design Review -->
-                    <div class="split-top">
-                        <div class="svc-icon-row" style="margin-bottom:10px;">
-                            <span class="svc-icon" style="font-size:1.6rem;">🔍</span>
+                <!-- ③ DESIGN REVIEW — uniform format, same as Greenfield/Brownfield -->
+                <div class="service-card glass-card anim" style="transition-delay:0.2s;">
+                    <div class="svc-img-wrap">
+                        <img src="images/card3.png" alt="Design Review">
+                        <div class="svc-img-overlay">
+                            <span class="svc-type-tag">REVIEW</span>
+                        </div>
+                    </div>
+                    <div class="svc-body">
+                        <div class="svc-icon-row">
+                            <span class="svc-icon">🔍</span>
                             <div>
                                 <h3>Design Review</h3>
                                 <p class="sub-title">Independent Validation</p>
                             </div>
                         </div>
                         <div class="kw-pills">
-                            <span class="kw-pill kw-pill-dim">🧪 Hydraulic Check</span>
-                            <span class="kw-pill kw-pill-dim">📊 Global Standards</span>
-                            <span class="kw-pill kw-pill-dim">💰 Cost Reduction</span>
+                            <span class="kw-pill">🧪 Hydraulic Check</span>
+                            <span class="kw-pill">📊 Global Standards</span>
+                            <span class="kw-pill">💰 Cost Reduction</span>
+                            <span class="kw-pill">✅ EN-Compliant</span>
                         </div>
-                        <ul class="tick-list" style="margin-top:8px;">
+                        <ul class="tick-list">
                             <li><span class="tick">✔</span> Risk-free, validated design</li>
                             <li><span class="tick">✔</span> Confidence before execution</li>
+                            <li><span class="tick">✔</span> Independent expert review</li>
                         </ul>
-                    </div>
-
-                    <!-- Divider -->
-                    <div class="split-divider"></div>
-
-                    <!-- Bottom half: Maintenance -->
-                    <div class="split-bottom">
-                        <div class="svc-icon-row" style="margin-bottom:10px;">
-                            <span class="svc-icon" style="font-size:1.6rem;">🔧</span>
-                            <div>
-                                <h3 style="color:var(--gold);">Maintenance</h3>
-                                <p class="sub-title" style="color:var(--gold);">Lifecycle Care</p>
-                            </div>
-                        </div>
-                        <div class="maint-icon-grid">
-                            <div class="maint-icon-item">
-                                <span>🏠</span>
-                                <strong>Roofing</strong>
-                                <p>Waterproofing &amp; ponding</p>
-                            </div>
-                            <div class="maint-icon-item">
-                                <span>🌊</span>
-                                <strong>Gutter</strong>
-                                <p>Debris &amp; slope checks</p>
-                            </div>
-                            <div class="maint-icon-item">
-                                <span>🚿</span>
-                                <strong>Siphonic</strong>
-                                <p>Outlet &amp; blockage</p>
-                            </div>
-                            <div class="maint-icon-item">
-                                <span>🚁</span>
-                                <strong>Drone</strong>
-                                <p>Aerial surveys</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- ④ COMMERCIAL MAINTENANCE — visual pill grid -->
+                <!-- ④ MAINTENANCE — visual 2x2 icon grid, uniform outer format -->
                 <div class="service-card glass-card anim maint-card-inline" style="transition-delay:0.3s;">
                     <div class="svc-img-wrap">
-                        <img src="images/Bhubaneswar.png" alt="Commercial Maintenance">
+                        <img src="images/card4.png" alt="Maintenance">
                         <div class="svc-img-overlay">
                             <span class="svc-type-tag" style="background:var(--gold);color:#000;">MAINTENANCE</span>
                         </div>
@@ -251,11 +228,11 @@
                         <div class="svc-icon-row">
                             <span class="svc-icon">🔩</span>
                             <div>
-                                <h3>Commercial Maintenance</h3>
+                                <h3>Maintenance</h3>
                                 <p class="sub-title" style="color:var(--gold);">Lifecycle Care for Large Buildings</p>
                             </div>
                         </div>
-                        <!-- Visual 2×2 icon grid instead of paragraphs -->
+                        <!-- Visual 2×2 icon grid -->
                         <div class="maint-2x2">
                             <div class="maint-2x2-item">
                                 <div class="maint-2x2-icon">🏠</div>
@@ -280,8 +257,8 @@
                                 <strong>Siphonic</strong>
                                 <div class="maint-kw-pills">
                                     <span>Outlet Inspect</span>
-                                    <span>Blockage Scan</span>
                                     <span>Performance</span>
+                                    <span>Flow Check</span>
                                 </div>
                             </div>
                             <div class="maint-2x2-item">
@@ -289,7 +266,7 @@
                                 <strong>Drone Surveys</strong>
                                 <div class="maint-kw-pills">
                                     <span>Aerial Inspect</span>
-                                    <span>Inaccessible Areas</span>
+                                    <span>Inaccessible Area Check</span>
                                 </div>
                             </div>
                         </div>
@@ -298,21 +275,31 @@
 
             </div><!-- /services-grid-4 -->
 
-            <!-- DrainSmart banner -->
-            <div class="ds-banner glass-card anim">
-                <div class="ds-banner-icon">⚙️</div>
-                <div>
-                    <h4>Powered by DrainSmart®</h4>
-                    <p>Hydraulically safe, BIM-ready, globally compliant — every project, every time.</p>
-                </div>
-                <a href="#drainsmart" class="btn btn-ghost" style="flex-shrink:0;font-size:0.85rem;">Learn More →</a>
-            </div>
-
             <div class="one-partner anim">
                 <h3>ONE PARTNER. COMPLETE RESPONSIBILITY.</h3>
                 <p>From new builds to retrofits, reviews to maintenance — end to end.</p>
             </div>
 
+        </div>
+    </section>
+
+    <!-- UPDATES — LinkedIn -->
+    <section id="updates">
+        <div class="container">
+            <div class="section-header anim">
+                <span class="section-label text-primary">— LATEST UPDATES —</span>
+                <h2>From Our LinkedIn</h2>
+                <p>Live posts — project milestones, technical insights, and industry news.</p>
+            </div>
+            <div class="anim" id="linkedinWidgetWrapper" style="min-height:420px;">
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div class="elfsight-app-ec036f20-8886-4154-bf50-f418c03ba182" data-elfsight-app-lazy></div>
+            </div>
+            <div class="li-follow-banner anim">
+                <p>→ Follow Aishwarya on LinkedIn for live project updates and siphonic insights.</p>
+                <a href="https://www.linkedin.com/in/aishwarya-raman-krishnan" target="_blank" rel="noopener"
+                    class="btn btn-linkedin">Follow on LinkedIn</a>
+            </div>
         </div>
     </section>
 
@@ -404,11 +391,11 @@
             <span class="section-label text-gold">— RECOGNITION & AWARDS —</span>
             <h2>Recognised. Awarded. Trusted.</h2>
             <div class="accolade-tags">
-                <span class="tag-pill">DPIIT Recognised Startup</span>
-                <span class="tag-pill">IPA Participant</span>
+                <span class="tag-pill">DPIIT Recognised Startup – Govt of India </span>
+                <span class="tag-pill">IPA Life Member</span>
                 <span class="tag-pill">IWA Member</span>
                 <span class="tag-pill">International Collaborations</span>
-                <span class="tag-pill">5+ Years in Industry</span>
+                <span class="tag-pill">7+ Years in Industry</span>
             </div>
         </div>
         <div class="accolades-marquee anim">
@@ -500,25 +487,6 @@
         </div>
     </section>
 
-    <!-- UPDATES — LinkedIn -->
-    <section id="updates">
-        <div class="container">
-            <div class="section-header anim">
-                <span class="section-label text-primary">— LATEST UPDATES —</span>
-                <h2>From Our LinkedIn</h2>
-                <p>Live posts — project milestones, technical insights, and industry news.</p>
-            </div>
-            <div class="anim" id="linkedinWidgetWrapper" style="min-height:420px;">
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-ec036f20-8886-4154-bf50-f418c03ba182" data-elfsight-app-lazy></div>
-            </div>
-            <div class="li-follow-banner anim">
-                <p>→ Follow Aishwarya on LinkedIn for live project updates and siphonic insights.</p>
-                <a href="https://www.linkedin.com/in/aishwarya-raman-krishnan" target="_blank" rel="noopener"
-                    class="btn btn-linkedin">Follow on LinkedIn</a>
-            </div>
-        </div>
-    </section>
 
     <!-- FAQ -->
     <section id="faq">
@@ -527,45 +495,75 @@
                 <span class="section-label text-muted">— FREQUENTLY ASKED —</span>
                 <h2>Got Questions?</h2>
             </div>
-            <div class="faq-wrap anim">
-                <div class="faq-item">
-                    <div class="faq-q">What is Siphonic Roof Drainage? <span class="faq-icon">+</span></div>
-                    <div class="faq-a">Siphonic Roof Drainage uses siphon action to rapidly drain roof areas without
-                        slope, using minimal pipe diameters and fewer downpipes — offering maximum efficiency and
-                        architectural flexibility.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">How does it differ from gravity systems? <span class="faq-icon">+</span></div>
-                    <div class="faq-a">Siphonic systems create a vacuum in the pipe network — enabling faster water
-                        removal, horizontal pipe routing without slope, and significantly fewer downpipes, especially
-                        effective over long horizontal distances.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">What roof types are suitable? <span class="faq-icon">+</span></div>
-                    <div class="faq-a">Flat roofs, curved roofs, airport terminals, warehouses, industrial buildings,
-                        commercial developments, and large-span structures. Its adaptability makes it ideal across a
-                        wide range of architectural designs.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">What are the main advantages? <span class="faq-icon">+</span></div>
-                    <div class="faq-a">Efficient water removal, space optimisation, cost-effectiveness, reduced material
-                        use, lower CO₂ footprint, architectural freedom, and minimal maintenance. Particularly
-                        advantageous for large roof areas.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">How does Siphonic Innovations ensure success? <span class="faq-icon">+</span>
+
+            <!-- Two-column: FAQ left, model photo right -->
+            <div class="faq-layout">
+
+                <!-- LEFT: accordion -->
+                <div class="faq-wrap anim">
+                    <div class="faq-item">
+                        <div class="faq-q">What is Siphonic Roof Drainage? <span class="faq-icon">+</span></div>
+                        <div class="faq-a">Siphonic Roof Drainage uses siphon action to rapidly drain roof areas without
+                            slope, using minimal pipe diameters and fewer downpipes — offering maximum efficiency and
+                            architectural flexibility.</div>
                     </div>
-                    <div class="faq-a">5+ years of hydraulic engineering experience with DrainSmart® software, BIM
-                        integration, OEM-neutral product selection, and close client collaboration — from concept
-                        through to post-handover maintenance.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">Is siphonic drainage eco-friendly? <span class="faq-icon">+</span></div>
-                    <div class="faq-a">Yes. Fewer pipes, fewer downpipes, less material — directly reducing the carbon
-                        footprint. Easily integrated with rainwater harvesting systems for sustainable building goals.
+                    <div class="faq-item">
+                        <div class="faq-q">How does it differ from gravity systems? <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-a">Siphonic systems create a vacuum in the pipe network — enabling faster water
+                            removal, horizontal pipe routing without slope, and significantly fewer downpipes,
+                            especially
+                            effective over long horizontal distances.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">What roof types are suitable? <span class="faq-icon">+</span></div>
+                        <div class="faq-a">Flat roofs, curved roofs, airport terminals, warehouses, industrial
+                            buildings,
+                            commercial developments, and large-span structures. Its adaptability makes it ideal across a
+                            wide range of architectural designs.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">What are the main advantages? <span class="faq-icon">+</span></div>
+                        <div class="faq-a">Efficient water removal, space optimisation, cost-effectiveness, reduced
+                            material
+                            use, lower CO₂ footprint, architectural freedom, and minimal maintenance. Particularly
+                            advantageous for large roof areas.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">How does Siphonic Innovations ensure success? <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-a">5+ years of hydraulic engineering experience with DrainSmart® software, BIM
+                            integration, OEM-neutral product selection, and close client collaboration — from concept
+                            through to post-handover maintenance.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">Is siphonic drainage eco-friendly? <span class="faq-icon">+</span></div>
+                        <div class="faq-a">Yes. Fewer pipes, fewer downpipes, less material — directly reducing the
+                            carbon
+                            footprint. Easily integrated with rainwater harvesting systems for sustainable building
+                            goals.</div>
                     </div>
                 </div>
-            </div>
+
+                <!-- RIGHT: model photo card -->
+                <div class="faq-model-wrap anim" style="transition-delay:0.15s;">
+                    <div class="faq-model-card glass-card">
+                        <div class="faq-model-label">Small Model. Big Impact.</div>
+                        <img src="images/Siphonic Drainage System.png"
+                            alt="Siphonic Drainage Model — showing Roof Outlet, Tail Pipe, Rail & Support, No Slope Hz Pipe, and Downpipe"
+                            class="faq-model-img">
+                        <div class="faq-model-tags">
+                            <span>🔵 Siphonic Roof Outlet</span>
+                            <span>🔵 Tail Pipe</span>
+                            <!-- <span>🔵 Rail &amp; Support</span> -->
+                            <!-- <span>🔵 No Slope Hz Pipe</span>
+                            <span>🔵 Downpipe</span>
+                            <span>🔵 Roof Surface</span> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /faq-layout -->
         </div>
     </section>
 
