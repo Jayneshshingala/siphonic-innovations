@@ -472,6 +472,23 @@ nav.scrolled {
     pointer-events: none;
 }
 
+.hero-side-caption-left {
+    position: absolute;
+    left: 20px;
+    bottom: 50%;
+    transform: translateY(50%) rotate(-90deg);
+    transform-origin: center center;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 3;
+    opacity: 0.75;
+    pointer-events: none;
+}
+
 @media (max-width: 900px) {
     .hero-content h1 {
         white-space: normal;
@@ -483,7 +500,8 @@ nav.scrolled {
         white-space: normal;
     }
 
-    .hero-side-caption {
+    .hero-side-caption,
+    .hero-side-caption-left {
         display: none;
     }
 
