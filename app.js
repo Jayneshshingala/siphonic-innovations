@@ -191,6 +191,7 @@ const FALLBACK_POSTS = [
 /* ── RENDER FUNCTION ── */
 function renderBlogCards(posts, profileUrl) {
     const grid = document.getElementById('blogGrid');
+    if (!grid) return;
     const typeColors = {
         project: '#00C8F0',
         insight: '#E8A020',
