@@ -1,6 +1,6 @@
 /* ============================================================
    SIPHONIC INNOVATIONS — styles.css
-   Brand: Dark Industrial-Luxury | Syne + DM Sans + Space Mono
+   Brand: Dark Industrial-Luxury | Poppins + Inter
    ============================================================ */
 
 /* ---------- CSS VARIABLES ---------- */
@@ -18,9 +18,9 @@
     --danger: #FF4D6A;
     --linkedin: #0A66C2;
 
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-    --font-mono: 'Space Mono', monospace;
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'Poppins', sans-serif;
 
     --radius: 12px;
     --radius-sm: 6px;
@@ -422,13 +422,13 @@ nav.scrolled {
 }
 
 .h1-line1 {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     white-space: nowrap;
 }
 
 .h1-line2 {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     white-space: nowrap;
 }
