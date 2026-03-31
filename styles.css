@@ -455,38 +455,35 @@ nav.scrolled {
     margin-bottom: 28px;
 }
 
-.hero-side-caption {
-    position: absolute;
-    right: 20px;
-    bottom: 50%;
-    transform: translateY(50%) rotate(90deg);
-    transform-origin: center center;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 3px;
-    color: var(--muted);
-    text-transform: uppercase;
-    white-space: nowrap;
-    z-index: 3;
-    opacity: 0.75;
-    pointer-events: none;
-}
-
 .hero-side-caption-left {
     position: absolute;
-    left: 20px;
-    bottom: 50%;
-    transform: translateY(50%) rotate(-90deg);
-    transform-origin: center center;
+    left: 0;
+    top: 38%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: row;
+    /* side by side vertically */
+    gap: 16px;
+    z-index: 3;
+    pointer-events: none;
+    padding-left: 6px;
+}
+
+.hero-side-caption-left span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     letter-spacing: 3px;
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.5);
+    /* white at 50% opacity */
     text-transform: uppercase;
     white-space: nowrap;
-    z-index: 3;
-    opacity: 0.75;
-    pointer-events: none;
+}
+
+.hero-side-caption-left span:last-child {
+    color: rgba(255, 255, 255, 0.5);
+    /* same white 50% for both */
 }
 
 @media (max-width: 900px) {
@@ -500,8 +497,7 @@ nav.scrolled {
         white-space: normal;
     }
 
-    .hero-side-caption,
-    .hero-side-caption-left {
+    .hero-side-caption {
         display: none;
     }
 
